@@ -18,6 +18,7 @@ client.login(process.env.BOT_TOKEN).catch((err) => {
 const notifier = new YouTubeNotifier({
     hubCallback: process.env.CALLBACK_URL,
     secret: uuidv4(),
+    port: process.env.PORT,
 });
 notifier.setup()
 

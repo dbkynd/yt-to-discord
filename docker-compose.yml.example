@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+  app:
+    build: ./
+    restart: unless-stopped
+    environment:
+      - YT_CHANNEL=
+      - DISCORD_CHANNELS=
+      - BOT_TOKEN=
+      - CALLBACK_URL=

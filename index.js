@@ -15,7 +15,7 @@ client.login(process.env.BOT_TOKEN).catch((err) => {
     console.error(err)
 })
 
-const port = process.env.port || 3000
+const port = process.env.PORT || 3000
 
 const notifier = new YouTubeNotifier({
     hubCallback: process.env.CALLBACK_URL,

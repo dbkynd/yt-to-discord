@@ -15,12 +15,15 @@ client.login(process.env.BOT_TOKEN).catch((err) => {
     console.error(err)
 })
 
+const port = process.env.port || 3000
+
 const notifier = new YouTubeNotifier({
     hubCallback: process.env.CALLBACK_URL,
     secret: uuidv4(),
-    port: process.env.PORT,
+    port,
 });
 notifier.setup()
+console.log(`Listening on port: ${port}`)
 
 notifier.on('subscribe', data => {
     console.log(`Subscribed to channel: ${data.channel}`)

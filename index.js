@@ -8,7 +8,7 @@ const client = new Client({intents: []})
 const channels = process.env.DISCORD_CHANNELS.split(',')
 
 client.once('ready', () => {
-    console.log('Connected to Discord')
+    console.log(`Connected to Discord as: ${client.user.tag}`)
 })
 
 client.login(process.env.BOT_TOKEN).catch((err) => {
@@ -30,9 +30,10 @@ notifier.on('subscribe', data => {
 })
 
 notifier.on('notified', data => {
+    console.log(`${data.channel.name} just uploaded a new video titled: ${data.video.title} at: ${data.video.link}`)
     channels.forEach(channel => {
         client.channels.fetch(channel).then(c => {
-            if (c.isText()) {
+            if (c && c.isText()) {
                 c.send(data.video.link).catch((err) => console.error(err))
             }
         })

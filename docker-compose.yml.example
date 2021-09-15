@@ -8,4 +8,5 @@ services:
       - DISCORD_CHANNELS=
       - BOT_TOKEN=
       - CALLBACK_URL=
-      - PORT=
+    ports:
+      - "3000:3000"

@@ -2,4 +2,5 @@ FROM node:latest
 WORKDIR /app
 COPY . .
 RUN yarn
-ENTRYPOINT ["node", "/app/index.js"]
+EXPOSE 3000
+ENTRYPOINT ["node", "index.js"]
